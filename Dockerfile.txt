@@ -1,0 +1,43 @@
+FROM ubuntu:20.04
+
+WORKDIR /python
+COPY Gene_KOs.tsv /python
+COPY Mutations.tsv /python
+COPY mosaic.py /python
+COPY test_mosaic.py /python
+COPY mosaic_get_lists.nf /python
+COPY mosaic_get_anova.nf /python/
+COPY mosaic_nextflow.py /python
+
+# Downlaod and install Java dependencies
+RUN \
+  apt-get update && \
+  DEBIAN_FRONTEND=noninteractive \
+    apt-get -y install \
+      default-jre-headless \
+  && \
+  apt-get clean && \
+  rm -rf /var/lib/apt/lists/*
+
+# Download and install python
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    python3.5 \
+    python3-pip \
+    && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+# Installing pandas, scipy, datatest and unittest2
+RUN pip3 install pandas scipy datatest unittest2
+
+
+# Installing wget
+RUN apt-get update && apt-get install -y wget
+
+# Installing nextflow
+
+RUN wget -qO- https://get.nextflow.io | bash && chmod +x nextflow \
+   && mv nextflow /usr/local/bin/
+   
+# Installing nano code/text editor
+RUN apt-get update && apt-get install nano
