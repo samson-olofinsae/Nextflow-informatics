@@ -18,7 +18,6 @@ script:
 """
 echo $y > output.txt
 """
-
 }
 
 workflow {
