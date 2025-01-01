@@ -18,7 +18,6 @@ script:
 echo $y > output.txt
 """
 }
-
 workflow {
 greeting_ch = Channel.from (params.greeting)
 weekend (greeting_ch)
