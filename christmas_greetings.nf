@@ -1,4 +1,4 @@
-// get your message in the festive-message/output.txt file
+// get your message in the festive-message/output.txt file.
 
 params.outdir = "festive-message"
 params.greeting = "Have a happy and prosperous CHRISTMAS everyone!! Have a blissful festive celebration. Cheers!"
