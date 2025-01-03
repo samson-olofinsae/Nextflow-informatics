@@ -6,7 +6,6 @@ process weekend {
 tag{"Writing festive messages into output file ..."}
 
 publishDir params.outdir, mode:'copy'
-
 input:
 val y
 output:
