@@ -10,7 +10,6 @@ input:
 val y
 output:
 path "output.txt"
-
 script:
 
 """
